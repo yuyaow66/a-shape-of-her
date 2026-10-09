@@ -1,0 +1,110 @@
+@import url('./cursor.css');
+@import url('../assets/fonts/fonts.css');
+@import url('./passage-reader.css');
+*{box-sizing:border-box}body{margin:0;background:#35253f;color:#63435f;font-family:Inter;overflow:hidden}p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button,a{touch-action:manipulation}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #e5ef70;outline-offset:4px}[hidden]{display:none!important}.figma-stage{position:absolute;width:1440px;height:766px;transform-origin:top left}.figma-screen,.figma-screen>div{width:1440px;height:766px;position:relative}.figma-stage{overflow:hidden}
+/* Collected Words retains the original header, filter panel and two paper columns. */
+.words-gallery{position:absolute;left:466px;top:54px;width:974px;height:712px;overflow-y:auto;overflow-x:hidden;padding:114px 28px 48px 34px;scrollbar-color:#78efb0 #35253f}
+.words-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:26px;row-gap:24px;align-items:start}
+.word-paper{min-width:0;padding-bottom:18px;border-bottom:1px solid #514158}
+.word-open>img{display:block;width:100%;height:148px;object-fit:contain}
+.word-metadata{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;font:400 13px/18px Inter}
+.word-stage{color:#78efb0}.word-pressure{color:#f0dbe8}
+.word-filter{border:0;text-align:left;cursor:pointer;font-family:Inter}.word-filter:focus-visible{outline-color:#35253f}
+.figma-stage{overflow:clip}body{height:100dvh;overflow:clip}.aligned-topbar-link{z-index:2}
+
+.word-open{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer}
+.word-viewer{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;width:min(1100px,90vw);max-width:none;max-height:90dvh;padding:24px 0;border:0;background:transparent;color:#78efb0;font-family:Inter;overflow:auto}
+.word-viewer::backdrop{background:rgba(53,37,63,.96)}
+.word-viewer-paper>img{display:block;width:100%;height:auto;max-height:70dvh;object-fit:contain}
+.word-viewer-actions{display:flex;justify-content:center;gap:48px;margin-top:32px}
+.word-viewer-actions button{padding:8px 0;border:0;background:none;color:#78efb0;font:400 16px/24px Inter}
+.word-viewer-actions button:hover{text-decoration:underline;text-underline-offset:4px}
+
+.word-viewer-paper{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer}
+/* Keep filter headings intact and reset free of browser button styling. */
+#words [data-node-id="40:77"],#words [data-node-id="47:264"],#words [data-node-id="40:88"]{white-space:nowrap!important;right:auto!important;bottom:auto!important;width:auto!important;height:auto!important}
+#words [data-node-id="40:98"]{left:auto!important;right:8.21%!important;bottom:auto!important;width:auto!important;height:auto!important;margin:0;padding:0;border:0;border-radius:0;appearance:none;background:none;color:#35253f;line-height:18px!important;white-space:nowrap}
+#words [data-node-id="40:98"] p{line-height:18px!important;white-space:nowrap}
+#words [data-node-id="40:98"]:hover{text-decoration:underline;text-underline-offset:3px}
+/* Native buttons must not add borders or padding to the Figma tab geometry. */
+.figma-screen button{appearance:none;border:0;padding:0;margin:0;box-shadow:none}
+/* Use the same projecting tab language as the home menu. */
+.figma-screen [data-name="Interview navigation — left tabs"]{z-index:5}
+.figma-screen [data-name="Interview navigation — left tabs"]>:is(a,button){
+ width:132px!important;border-radius:0 8px 8px 0!important;
+ transition:width 180ms ease-out,background-color 180ms ease-out;
+}
+.figma-screen [data-name="Interview navigation — left tabs"]>:is(a,button):is(:hover,:focus-visible,[aria-current="page"]){
+ width:180px!important;background:#78efb0!important;
+}
+.figma-screen [data-name="Interview navigation — left tabs"]>:is(a,button):is(:hover,:focus-visible,[aria-current="page"]) p{color:#35253f!important}
+.figma-screen [data-name="Interview navigation — left tabs"]>[aria-current="page"] p{font-weight:700}
+/* Anchor the movie tabs at the same left edge while their width changes. */
+:is(#film,#reflection) [data-name="Interview navigation — left tabs"]{left:0!important;top:130px!important;transform:none!important}
+@media(prefers-reduced-motion:reduce){.figma-screen [data-name="Interview navigation — left tabs"]>*{transition:none}}
+.word-filter:hover,.word-filter:focus-visible{background:#f3a5de!important}
+.brand-link:hover p,.brand-link:focus-visible p{color:#e5ef70!important}
+.brand-flourish{pointer-events:none}
+.brand-link:hover~.brand-flourish,.brand-link:focus-visible~.brand-flourish{background:#e5ef70;mask-image:var(--flourish-mask);mask-size:100% 100%;mask-repeat:no-repeat}
+.brand-link:hover~.brand-flourish img,.brand-link:focus-visible~.brand-flourish img{opacity:0}
+:is(#film,#reflection) [data-name="Interview navigation — left tabs"]>:is(a,button):is(:hover,:focus-visible,[aria-current="page"]){background:#78efb0!important}
+:is(#film,#reflection) [data-name="Interview navigation — left tabs"]>[aria-current="page"] p{font-weight:700}
+
+::selection{background:#78efb0;color:#35253f}
+
+
+/* Body copy only: keep original Figma headings and navigation. */
+[data-name^="Question"]>:not(:first-child):not(button),
+[data-name^="Question"]>:not(:first-child) p,
+[data-name="Research — scrollable index"]>[style*="left:202px"]>p:not(:first-child),
+.passage-row p{font-family:'PP Neue Montreal',Inter,sans-serif!important}
+
+/* Meet the text panel without changing the photographs' proportions. */
+#aunt1 [data-name="Family photographs — original proportions"]{align-items:flex-end!important}
+#aunt2 [data-name="Aunt 2 — scrollable photographs"]{left:189.402px!important;width:600.598px!important}
+
+:is(#grandma,#aunt1) [data-name="Photos + interview"]{align-items:stretch!important}
+
+/* Collapse only the filter panel; keep selected filters and paper interactions. */
+.figma-screen .words-filter-close{position:absolute;left:410px;top:67px;width:40px;height:28px;z-index:6;background:none;color:#35253f;font:400 20px/28px Inter}
+.figma-screen .words-filter-open{position:absolute;left:28px;top:74px;z-index:6;background:none;color:#78efb0;font:400 16px/24px Inter}
+.words-filter-open:hover{color:#e5ef70}
+#words.filters-closed .words-gallery{left:0;width:1440px;padding-top:72px}
+#words.filters-closed .words-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+#film [data-name="Family photographs — original proportions"] img{transform:scale(.9);transform-origin:right center}
+
+:is(#mom,#grandma,#aunt1,#aunt2) [data-name="Family photographs — original proportions"] img{transform:scale(.9);transform-origin:right bottom}
+
+:is(#mom,#grandma,#aunt1,#aunt2) [data-name="Family photographs — original proportions"]>div:first-child img{transform-origin:right top}
+
+/* Remove the extra tail space after the final film study. */
+#film [data-name="Interview — editable questions and answers"]{padding-bottom:48px!important}
+#film [data-name="Family photographs — original proportions"]>div:last-child{height:414px!important}
+
+.movie-link-coming-soon{color:#63435f;font:400 16px/24px 'PP Neue Montreal',Inter,sans-serif;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.movie-link-coming-soon:hover{color:#78efb0}
+
+/* Leave room for the expanded film tabs without shifting the right edge. */
+#reflection [data-name="Summary — content"]{padding-left:68px!important}
+#reflection [data-name="Summary — content"]>[data-name^="Question"]{width:100%!important;min-width:0}
+#reflection [data-name="Summary — content"]>[data-name^="Question"]>*{max-width:100%!important}
+
+/* Wider film reading column with each still aligned to its own study. */
+#film [data-name="Photos + interview"]{display:grid!important;grid-template-columns:850px 450px;align-items:stretch!important}
+#film :is([data-name="Family photographs — original proportions"],[data-name="Interview — editable questions and answers"]){display:contents!important}
+#film [data-name="Interview — editable questions and answers"]>[data-name^="Question"]{grid-column:1;width:850px!important;padding:38px 38px 48px 68px;background:#ead7e3;min-width:0}
+#film [data-name="Interview — editable questions and answers"]>[data-name^="Question"]>*{max-width:100%!important}
+#film [data-name="Interview — editable questions and answers"]>[data-name^="Question"]>:not(.movie-link-coming-soon){width:100%!important}
+#film [data-name="Interview — editable questions and answers"]>[data-name^="Question"] p{max-width:100%!important}
+#film [data-name="Family photographs — original proportions"]>div{grid-column:2;width:450px!important;height:auto!important;min-height:300px;padding:38px 38px 48px 0;background:#ead7e3}
+#film [data-name="Family photographs — original proportions"] img{position:static!important;height:auto!important;transform:none;object-position:right top}
+#film :is([data-name="Family photographs — original proportions"],[data-name="Interview — editable questions and answers"])>:nth-child(1){grid-row:1}
+#film :is([data-name="Family photographs — original proportions"],[data-name="Interview — editable questions and answers"])>:nth-child(2){grid-row:2}
+#film :is([data-name="Family photographs — original proportions"],[data-name="Interview — editable questions and answers"])>:nth-child(3){grid-row:3}
+
+/* Extend the film reading surface to the bottom of the viewport. */
+.figma-stage:has(#film:not([hidden])){height:var(--film-height,766px)}
+#film{height:var(--film-height,766px)!important}
+#film>div{height:100%!important}
+#film [data-name="Films — scrollable studies"]{top:54px!important;background:linear-gradient(to right,#35253f 140px,#ead7e3 140px)!important}
