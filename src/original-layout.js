@@ -147,6 +147,7 @@ function resize(){
  }
  const key=location.hash.slice(1).split('/')[0];const full=['mom','grandma','aunt1','aunt2','xiaomin','xiaosheng','zhengjuan','fanghanqin','fengqin','film','words','research','summary'].includes(key);
  const s=full?innerWidth/1440:Math.min(innerWidth/1440,innerHeight/766);stage.style.transform=`scale(${s})`;stage.style.left=full?'0px':`${(innerWidth-1440*s)/2}px`;stage.style.top=full?'0px':`${(innerHeight-766*s)/2}px`;
+ stage.style.setProperty('--interview-viewport-height',`${Math.min(766,innerHeight/s)}px`);
  if(full)document.body.style.setProperty('--interview-header-height',`${54*s}px`);else document.body.style.removeProperty('--interview-header-height');
 }
 function show(){const [key,filmIndex]=location.hash.slice(1).split('/');if(key==='reflection'){location.replace('#film/8');return;}for(const s of screens)s.hidden=s.id!==key;if(!screens.some(s=>s.id===key))screens[0].hidden=false;resize();
