@@ -228,7 +228,7 @@ function addMenu({nodeId,label,top,left,items}){
  menu.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
  entry.addEventListener('focusout',event=>{if(!entry.contains(event.relatedTarget))closeMenu();});
 }
-addMenu({nodeId:'1:408',label:'Film Studies',top:264,left:255,items:[
+addMenu({nodeId:'1:408',label:'Film & Book Studies',top:264,left:340,items:[
  {label:'The Bold, the Corrupt, and the Beautiful',route:'film/0'},
  {label:'Raise the Red Lantern',route:'film/1'},
  {label:'In the Mood for Love',route:'film/2'},
