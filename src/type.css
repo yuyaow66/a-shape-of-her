@@ -51,6 +51,7 @@ body{font-family:var(--font-text)}
 [data-name="Close About"]:hover p,
 [data-name="Close About"]:focus-visible p{background:var(--plum);color:var(--highlight)!important}
 [data-name="Close About"]:active{opacity:.5}
+.figma-home .home-about-close:focus-visible{outline:none}
 
 /* About copy matches the reference info panel: 20px, open paragraphs, no indent. */
 #about [data-node-id="8:435"],
