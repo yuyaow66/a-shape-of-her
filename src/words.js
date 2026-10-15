@@ -8,9 +8,10 @@ export async function initWords(){
  const gallery=document.createElement('div');gallery.className='words-gallery';gallery.setAttribute('role','region');gallery.setAttribute('aria-label','Collected Words');gallery.tabIndex=0;
  const grid=document.createElement('div');grid.className='words-grid';gallery.append(grid);root.append(gallery);
  const panel=screen.querySelector('[data-node-id="92:99"]');panel.id='words-filter-panel';
+ const panelBox=screen.querySelector('[data-name="Collected Words — Left panel"]');
  const closeFilters=document.createElement('button');closeFilters.type='button';closeFilters.className='words-filter-close';closeFilters.textContent='(×)';closeFilters.setAttribute('aria-label','Close filters');
  const openFilters=document.createElement('button');openFilters.type='button';openFilters.className='words-filter-open';openFilters.textContent='Filter';openFilters.hidden=true;openFilters.setAttribute('aria-controls',panel.id);openFilters.setAttribute('aria-expanded','true');
- panel.append(closeFilters);root.append(openFilters);
+ panelBox.append(closeFilters);root.append(openFilters);
  const compact=matchMedia('(max-width:1100px)');
  function setFiltersClosed(closed,focus=true){
   const visible=[...grid.children].find(card=>!card.hidden&&card.getBoundingClientRect().bottom>gallery.getBoundingClientRect().top);
@@ -65,7 +66,6 @@ export async function initWords(){
   button.addEventListener('click',()=>{toggleFilter(filters,key,label);render();});
  }
  grid.id='collected-word-grid';
- const panelBox=screen.querySelector('[data-name="Collected Words — Left panel"]');
  const stack=document.createElement('div');stack.className='word-filter-stack';
  for(const [key,id] of [['lifeStages','40:77'],['pressure','40:88'],['themes','47:264']]){
   const block=document.createElement('section');block.className='word-filter-group';

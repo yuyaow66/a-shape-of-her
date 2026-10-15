@@ -158,7 +158,7 @@ function show(){const [key,filmIndex]=location.hash.slice(1).split('/');if(key==
  }
  if(key==='film'&&filmIndex){requestAnimationFrame(()=>{const content=document.querySelector('#film [data-name="Films — scrollable studies"]');const blocks=[...document.querySelectorAll('#film [data-name^="Question"]')];const block=blocks[Number(filmIndex)];if(block)content.scrollTop=block.offsetTop;});}}
 addEventListener('resize',resize);addEventListener('hashchange',show);resize();show();
-import {initWords} from './words.js?v=all-theme-tags-1';
+import {initWords} from './words.js?v=filter-close-inset-1';
 initWords().catch(error=>console.error(error));
 import {alignTopbars} from './topbar.js?v=topnav';
 alignTopbars();resize();document.fonts.ready.then(resize);

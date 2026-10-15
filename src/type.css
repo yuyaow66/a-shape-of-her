@@ -279,7 +279,7 @@ body{font-family:var(--font-text)}
 
 #research p.research-lead{line-height:1.45!important}
 
-#words #words-filter-panel>.words-filter-close{position:absolute!important;inset:8px 12px auto auto!important;left:auto!important;top:8px!important;width:44px!important;height:44px!important;padding:10px!important;z-index:21}
+#words #words-filter-panel .words-filter-close{position:absolute!important;inset:8px 12px auto auto!important;left:auto!important;top:8px!important;width:44px!important;height:44px!important;padding:10px!important;z-index:21}
 
 .word-pressure-tag.word-theme-tag{background:#e5ef70;color:#35253f}
 
