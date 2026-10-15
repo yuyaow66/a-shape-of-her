@@ -1,12 +1,23 @@
-const positions={'(Collected Words)':364,'(Interviews)':672,'(Film & Book Studies)':908,'(Research)':1192};
+const navLabels={'(Collected Words)':'COLLECTED WORDS','(Interviews)':'INTERVIEWS','(Film & Book Studies)':'FILM & BOOK STUDIES','(Research)':'RESEARCH'};
+const navOrder=Object.keys(navLabels);
 const label=el=>(el.querySelectorAll('p').length?[...el.querySelectorAll('p')].map(p=>p.textContent).join(' '):el.textContent).replace(/\s+/g,' ').trim();
 export function alignTopbars(){
  for(const root of document.querySelectorAll('.figma-screen>div')){
+  const links=[];
   for(const el of [...root.children]){
-   const key=label(el);if(!(key in positions))continue;
+   const key=label(el);if(!(key in navLabels))continue;
    el.classList.add('aligned-topbar-link');
-   Object.assign(el.style,{position:'absolute',left:positions[key]+'px',top:'16px',right:'auto',bottom:'auto',width:'auto',height:'20px',display:'block',fontFamily:'Inter',fontSize:'16px',fontWeight:'400',lineHeight:'20px',whiteSpace:'nowrap'});
-   for(const p of el.querySelectorAll('p')){p.style.lineHeight='20px';p.style.margin='0';}
+   const title=el.querySelector('p')||el;
+   title.textContent=navLabels[key];
+   for(const extra of [...el.querySelectorAll('p')].slice(1))extra.remove();
+   links.push({key,el});
+  }
+  if(links.length){
+   const bar=document.createElement('nav');
+   bar.className='topnav';
+   bar.setAttribute('aria-label','Sections');
+   for(const key of navOrder){const item=links.find(link=>link.key===key);if(item)bar.append(item.el);}
+   root.append(bar);
   }
   const brand=[...root.children].find(el=>label(el)==='A SHAPE OF HER');
   if(brand){brand.classList.add('brand-link');Object.assign(brand.style,{left:'14px',top:'16px',right:'auto',bottom:'auto',height:'20px',lineHeight:'20px'});for(const p of brand.querySelectorAll('p'))p.style.lineHeight='20px';}

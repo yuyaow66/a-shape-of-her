@@ -1,5 +1,5 @@
 // Read from the existing Figma paragraphs; no rewritten or generated content.
-const people={mom:'Mom',grandma:'Grandma',aunt1:'Aunt 1',aunt2:'Aunt 2'};
+import {interviewPeople as people} from './interview-followups.js?v=feng-qin-humanized-1';
 const clean=text=>text.replace(/\u200b/g,'').replace(/\s+/g,' ').trim();
 const readText=node=>node.nodeName==='BR'?' ':node.nodeType===3?node.textContent:[...node.childNodes].map(readText).join('')+(['P','DIV'].includes(node.nodeName)?' ':'');
 const button=(text,label,action)=>{
@@ -7,7 +7,7 @@ const button=(text,label,action)=>{
  element.setAttribute('aria-label',label);element.addEventListener('click',action);return element;
 };
 export async function initPassageReader(){
- const response=await fetch('content/my-pov.json');if(!response.ok)throw new Error('My POV could not be loaded');
+ const response=await fetch('content/my-pov.json?v=fang-humanized-1');if(!response.ok)throw new Error('My POV could not be loaded');
  const insights=await response.json();
  const entries=[];
  for(const key of Object.keys(people)){
@@ -27,13 +27,15 @@ export async function initPassageReader(){
  const photo=document.createElement('div');photo.className='passage-photo';photo.setAttribute('aria-hidden','true');
  const toolbar=document.createElement('div');toolbar.className='passage-toolbar';
  const peopleNav=document.createElement('nav');peopleNav.setAttribute('aria-label','Interviews');
- const back=button('Back','Back',()=>reader.close());toolbar.append(peopleNav,back);
+ const back=button('Back','Back',()=>reader.close());back.className='passage-back';toolbar.append(peopleNav,back);
  const text=document.createElement('div');text.className='passage-text';reader.append(photo,toolbar,text);document.body.append(reader);
  let current,origin,showPov=false;
  function openReader(entry){
   origin=document.activeElement;current=entry;showPov=false;renderReader();reader.showModal();back.focus();
  }
  function renderReader(){
+  const questionIndex=entries.filter(entry=>entry.key==='mom').findIndex(entry=>entry.heading===current.heading);
+  const insight=insights[questionIndex]||{paragraphs:['to be updated']};
   photo.style.backgroundImage=showPov?'':current.photo;peopleNav.replaceChildren();
   if(current.key!=='film'){
    for(const [key,name] of Object.entries(people)){
@@ -45,8 +47,6 @@ export async function initPassageReader(){
   const povTab=button('My POV','My POV',()=>{showPov=true;renderReader();reader.scrollTop=0;});
   povTab.setAttribute('aria-pressed',String(showPov));peopleNav.append(povTab);
   text.replaceChildren();const heading=document.createElement('h2');heading.textContent=current.heading;text.append(heading);
-  const questionIndex=entries.filter(entry=>entry.key==='mom').findIndex(entry=>entry.heading===current.heading);
-  const insight=insights[questionIndex];
   for(const passage of showPov?insight.paragraphs:current.paragraphs){
    const row=document.createElement('div');row.className='passage-row';
    const paragraph=document.createElement('p');paragraph.textContent=passage;row.append(paragraph);

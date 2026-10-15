@@ -469,7 +469,7 @@
   },
   {
     "id": "adolescence-01",
-    "number": 1,
+    "number": 21,
     "lifeStages": [
       "Adolescence"
     ],
@@ -492,7 +492,7 @@
   },
   {
     "id": "adolescence-02",
-    "number": 2,
+    "number": 22,
     "lifeStages": [
       "Adolescence"
     ],
@@ -516,7 +516,7 @@
   },
   {
     "id": "adolescence-03",
-    "number": 3,
+    "number": 23,
     "lifeStages": [
       "Adolescence"
     ],
@@ -540,7 +540,7 @@
   },
   {
     "id": "adolescence-04",
-    "number": 4,
+    "number": 24,
     "lifeStages": [
       "Adolescence"
     ],
@@ -564,7 +564,7 @@
   },
   {
     "id": "adolescence-05",
-    "number": 5,
+    "number": 25,
     "lifeStages": [
       "Adolescence"
     ],
@@ -589,7 +589,7 @@
   },
   {
     "id": "adolescence-06",
-    "number": 6,
+    "number": 26,
     "lifeStages": [
       "Adolescence"
     ],
@@ -613,7 +613,7 @@
   },
   {
     "id": "adolescence-07",
-    "number": 7,
+    "number": 27,
     "lifeStages": [
       "Adolescence"
     ],
@@ -637,7 +637,7 @@
   },
   {
     "id": "adolescence-08",
-    "number": 8,
+    "number": 28,
     "lifeStages": [
       "Adolescence"
     ],
@@ -661,7 +661,7 @@
   },
   {
     "id": "adolescence-09",
-    "number": 9,
+    "number": 29,
     "lifeStages": [
       "Adolescence"
     ],
@@ -684,7 +684,7 @@
   },
   {
     "id": "adolescence-10",
-    "number": 10,
+    "number": 30,
     "lifeStages": [
       "Adolescence"
     ],
@@ -708,7 +708,7 @@
   },
   {
     "id": "adolescence-11",
-    "number": 11,
+    "number": 31,
     "lifeStages": [
       "Adolescence"
     ],
@@ -731,7 +731,7 @@
   },
   {
     "id": "adolescence-12",
-    "number": 12,
+    "number": 32,
     "lifeStages": [
       "Adolescence"
     ],
@@ -755,7 +755,7 @@
   },
   {
     "id": "adolescence-13",
-    "number": 13,
+    "number": 33,
     "lifeStages": [
       "Adolescence"
     ],
@@ -778,7 +778,7 @@
   },
   {
     "id": "adolescence-14",
-    "number": 14,
+    "number": 34,
     "lifeStages": [
       "Adolescence"
     ],
@@ -802,7 +802,7 @@
   },
   {
     "id": "adolescence-15",
-    "number": 15,
+    "number": 35,
     "lifeStages": [
       "Adolescence"
     ],
@@ -827,7 +827,7 @@
   },
   {
     "id": "adolescence-16",
-    "number": 16,
+    "number": 36,
     "lifeStages": [
       "Adolescence"
     ],
@@ -851,7 +851,7 @@
   },
   {
     "id": "adolescence-17",
-    "number": 17,
+    "number": 37,
     "lifeStages": [
       "Adolescence"
     ],
@@ -877,7 +877,7 @@
   },
   {
     "id": "adolescence-18",
-    "number": 18,
+    "number": 38,
     "lifeStages": [
       "Adolescence"
     ],
@@ -900,7 +900,7 @@
   },
   {
     "id": "adolescence-19",
-    "number": 19,
+    "number": 39,
     "lifeStages": [
       "Adolescence"
     ],
@@ -925,7 +925,7 @@
   },
   {
     "id": "adolescence-20",
-    "number": 20,
+    "number": 40,
     "lifeStages": [
       "Adolescence"
     ],
@@ -949,7 +949,7 @@
   },
   {
     "id": "womanhood-01",
-    "number": 1,
+    "number": 41,
     "lifeStages": [
       "Adulthood"
     ],
@@ -974,7 +974,7 @@
   },
   {
     "id": "womanhood-02",
-    "number": 2,
+    "number": 42,
     "lifeStages": [
       "Adulthood"
     ],
@@ -999,7 +999,7 @@
   },
   {
     "id": "womanhood-03",
-    "number": 3,
+    "number": 43,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "womanhood-04",
-    "number": 4,
+    "number": 44,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1048,7 +1048,7 @@
   },
   {
     "id": "womanhood-05",
-    "number": 5,
+    "number": 45,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1072,7 +1072,7 @@
   },
   {
     "id": "womanhood-06",
-    "number": 6,
+    "number": 46,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1097,7 +1097,7 @@
   },
   {
     "id": "womanhood-07",
-    "number": 7,
+    "number": 47,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1123,7 +1123,7 @@
   },
   {
     "id": "womanhood-08",
-    "number": 8,
+    "number": 48,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1148,7 +1148,7 @@
   },
   {
     "id": "womanhood-09",
-    "number": 9,
+    "number": 49,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1172,7 +1172,7 @@
   },
   {
     "id": "womanhood-10",
-    "number": 10,
+    "number": 50,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1196,7 +1196,7 @@
   },
   {
     "id": "womanhood-11",
-    "number": 11,
+    "number": 51,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1221,7 +1221,7 @@
   },
   {
     "id": "womanhood-12",
-    "number": 12,
+    "number": 52,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1245,7 +1245,7 @@
   },
   {
     "id": "womanhood-13",
-    "number": 13,
+    "number": 53,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1268,7 +1268,7 @@
   },
   {
     "id": "womanhood-14",
-    "number": 14,
+    "number": 54,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1294,7 +1294,7 @@
   },
   {
     "id": "womanhood-15",
-    "number": 15,
+    "number": 55,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1317,7 +1317,7 @@
   },
   {
     "id": "womanhood-16",
-    "number": 16,
+    "number": 56,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1342,7 +1342,7 @@
   },
   {
     "id": "womanhood-17",
-    "number": 17,
+    "number": 57,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1365,7 +1365,7 @@
   },
   {
     "id": "womanhood-18",
-    "number": 18,
+    "number": 58,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1390,7 +1390,7 @@
   },
   {
     "id": "womanhood-19",
-    "number": 19,
+    "number": 59,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1416,7 +1416,7 @@
   },
   {
     "id": "womanhood-20",
-    "number": 20,
+    "number": 60,
     "lifeStages": [
       "Adulthood"
     ],
@@ -1437,6 +1437,496 @@
     "images": {
       "en": "assets/womanhood-strips/IMG_3894.webp",
       "zh": "assets/womanhood-strips/IMG_3895.webp"
+    }
+  },
+  {
+    "id": "later-life-01",
+    "number": 61,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Social Norms",
+      "External Gaze"
+    ],
+    "themes": [
+      "Education",
+      "Ambition",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Isn’t it too late to start learning that now?",
+      "zh": "你现在才想去学，会不会太晚了？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4163.webp",
+      "zh": "assets/later-life-strips/IMG_4164.webp"
+    }
+  },
+  {
+    "id": "later-life-02",
+    "number": 62,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Social Norms",
+      "External Gaze"
+    ],
+    "themes": [
+      "Aging",
+      "Ambition",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "At your age, what more could you possibly want?",
+      "zh": "都这把年纪了，还有什么不知足的？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4165.webp",
+      "zh": "assets/later-life-strips/IMG_4166.webp"
+    }
+  },
+  {
+    "id": "later-life-03",
+    "number": 63,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Obedience",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "You’re getting older. Can’t you just keep your thoughts to yourself?",
+      "zh": "年纪大了，就不能少说两句吗？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4167.webp",
+      "zh": "assets/later-life-strips/IMG_4168.webp"
+    }
+  },
+  {
+    "id": "later-life-04",
+    "number": 64,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Education",
+      "Aging",
+      "Independence"
+    ],
+    "text": {
+      "en": "We’ve shown you how to use this phone so many times. Why haven’t you learnt?",
+      "zh": "这个手机教了这么多遍，你怎么还不会？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4169.webp",
+      "zh": "assets/later-life-strips/IMG_4170.webp"
+    }
+  },
+  {
+    "id": "later-life-05",
+    "number": 65,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Money",
+      "Motherhood",
+      "Independence",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Why not save your pension for your children?",
+      "zh": "养老金为什么不留着给孩子？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4171.webp",
+      "zh": "assets/later-life-strips/IMG_4172.webp"
+    }
+  },
+  {
+    "id": "later-life-06",
+    "number": 66,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family"
+    ],
+    "themes": [
+      "Obedience",
+      "Independence",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "If you don’t understand these things, why do you have to decide for yourself?",
+      "zh": "这些事情你又不懂，为什么还要自己决定？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4173.webp",
+      "zh": "assets/later-life-strips/IMG_4174.webp"
+    }
+  },
+  {
+    "id": "later-life-07",
+    "number": 67,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Motherhood",
+      "Caregiving",
+      "Aging"
+    ],
+    "text": {
+      "en": "Shouldn’t you try to make things easier for your children?",
+      "zh": "你是不是应该少麻烦孩子一点？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4175.webp",
+      "zh": "assets/later-life-strips/IMG_4176.webp"
+    }
+  },
+  {
+    "id": "later-life-08",
+    "number": 68,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Obedience",
+      "Motherhood",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Can’t you put up with feeling a bit ill? Why worry your children?",
+      "zh": "不舒服就忍忍，何必让孩子担心？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4177.webp",
+      "zh": "assets/later-life-strips/IMG_4178.webp"
+    }
+  },
+  {
+    "id": "later-life-09",
+    "number": 69,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Caregiving",
+      "Relationships",
+      "Independence",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Why move into a care home when you have family?",
+      "zh": "家里又不是没人，为什么要去养老院？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4179.webp",
+      "zh": "assets/later-life-strips/IMG_4180.webp"
+    }
+  },
+  {
+    "id": "later-life-10",
+    "number": 70,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Relationships",
+      "Independence",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Aren’t you lonely living alone? Why not move in with your children?",
+      "zh": "一个人住不孤单吗？为什么不搬去和孩子住？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4181.webp",
+      "zh": "assets/later-life-strips/IMG_4182.webp"
+    }
+  },
+  {
+    "id": "later-life-11",
+    "number": 71,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Marriage",
+      "Relationships",
+      "Motherhood",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Have you thought about your children before getting married again?",
+      "zh": "你再婚，有没有替子女想过？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4183.webp",
+      "zh": "assets/later-life-strips/IMG_4184.webp"
+    }
+  },
+  {
+    "id": "later-life-12",
+    "number": 72,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "External Gaze",
+      "Social Norms"
+    ],
+    "themes": [
+      "Appearance",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "Why don’t you dye your grey hair?",
+      "zh": "你怎么不把白头发染染？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4185.webp",
+      "zh": "assets/later-life-strips/IMG_4186.webp"
+    }
+  },
+  {
+    "id": "later-life-13",
+    "number": 73,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "External Gaze",
+      "Social Norms"
+    ],
+    "themes": [
+      "Appearance",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "You are a grandmother now. Who are you dressing up for?",
+      "zh": "都当奶奶了，还打扮给谁看？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4187.webp",
+      "zh": "assets/later-life-strips/IMG_4188.webp"
+    }
+  },
+  {
+    "id": "later-life-14",
+    "number": 74,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "External Gaze",
+      "Social Norms"
+    ],
+    "themes": [
+      "Appearance",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "At your age, why are you still wearing such bright colors?",
+      "zh": "这把年纪了，还穿得这么鲜艳？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4189.webp",
+      "zh": "assets/later-life-strips/IMG_4190.webp"
+    }
+  },
+  {
+    "id": "later-life-15",
+    "number": 75,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Caregiving",
+      "Motherhood",
+      "Obedience"
+    ],
+    "text": {
+      "en": "They’re your own grandchildren. What is there to complain about?",
+      "zh": "带自己的孙辈，有什么好抱怨的？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4191.webp",
+      "zh": "assets/later-life-strips/IMG_4192.webp"
+    }
+  },
+  {
+    "id": "later-life-16",
+    "number": 76,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Caregiving",
+      "Motherhood",
+      "Work",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "If you don’t look after the grandchildren, how will your children go to work?",
+      "zh": "你不帮忙带孙辈，孩子们怎么上班？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4193.webp",
+      "zh": "assets/later-life-strips/IMG_4194.webp"
+    }
+  },
+  {
+    "id": "later-life-17",
+    "number": 77,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Work",
+      "Independence",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "You’re retired now. Why are you still so busy doing your own things?",
+      "zh": "都退休了，怎么还忙自己的事？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4195.webp",
+      "zh": "assets/later-life-strips/IMG_4196.webp"
+    }
+  },
+  {
+    "id": "later-life-18",
+    "number": 78,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "External Gaze",
+      "Social Norms"
+    ],
+    "themes": [
+      "Relationships",
+      "Aging",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "At your age, why are you still thinking about romance?",
+      "zh": "这么大年纪了，还谈什么恋爱？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4198.webp",
+      "zh": "assets/later-life-strips/IMG_4197.webp"
+    }
+  },
+  {
+    "id": "later-life-19",
+    "number": 79,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Caregiving",
+      "Housework",
+      "Relationships",
+      "Independence",
+      "Personal Choice"
+    ],
+    "text": {
+      "en": "After spending your whole life caring for this family, why do you want to leave now",
+      "zh": "为家里操心了一辈子，现在怎么反而想走了？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4199.webp",
+      "zh": "assets/later-life-strips/IMG_4200.webp"
+    }
+  },
+  {
+    "id": "later-life-20",
+    "number": 80,
+    "lifeStages": [
+      "Later Life"
+    ],
+    "pressure": [
+      "Pressure from Family",
+      "Social Norms"
+    ],
+    "themes": [
+      "Independence",
+      "Personal Choice",
+      "Housework"
+    ],
+    "text": {
+      "en": "You’re home on your own. How can you possibly be busy?",
+      "zh": "你一个人在家，怎么还会没空？"
+    },
+    "images": {
+      "en": "assets/later-life-strips/IMG_4201.webp",
+      "zh": "assets/later-life-strips/IMG_4202.webp"
     }
   }
 ]
