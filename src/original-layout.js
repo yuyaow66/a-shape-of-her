@@ -59,7 +59,7 @@ if(researchIndex){
   researchLead.classList.add('research-lead');
   const highlight=document.createElement('span');highlight.className='research-lead-highlight';
   for(const part of researchLead.textContent.split(/(social expectations|identities|choices)/g)){
-   if(['social expectations','identities','choices'].includes(part)){
+   if(['identities','choices'].includes(part)){
     const keyword=document.createElement('span');keyword.className='research-lead-keyword';keyword.textContent=part;highlight.append(keyword);
    }else highlight.append(document.createTextNode(part));
   }
@@ -134,33 +134,39 @@ for(const name of ['Aunt 2 — scrollable photographs','Aunt 2 — scrollable in
 }
 aunt2Root.append(aunt2Content);
 function resize(){
+ const header=syncTopbars();
+ const headerHeight=Math.ceil(header?.getBoundingClientRect().bottom||54);
  if(innerWidth<=1100){
   stage.style.transform='none';stage.style.left='0px';stage.style.top='0px';
-  const active=screens.find(screen=>!screen.hidden);
-  const nav=active?.querySelector('.topnav');
-  const headerHeight=Math.ceil(nav?.getBoundingClientRect().bottom||100)+10;
-  document.documentElement.style.setProperty('--responsive-header-height',`${headerHeight}px`);
-  const tabs=active?.querySelector('[data-name="Interview navigation — left tabs"]');
-  document.documentElement.style.setProperty('--responsive-tabs-height',`${Math.ceil(tabs?.getBoundingClientRect().height||0)}px`);
+  document.documentElement.style.setProperty('--responsive-header-height',`${headerHeight+10}px`);
+  document.documentElement.style.setProperty('--responsive-tabs-height','0px');
   document.body.style.setProperty('--interview-header-height',`${headerHeight}px`);
   return;
  }
  const key=location.hash.slice(1).split('/')[0];const full=['mom','grandma','aunt1','aunt2','xiaomin','xiaosheng','zhengjuan','fanghanqin','fengqin','film','words','research','summary'].includes(key);
- const s=full?innerWidth/1440:Math.min(innerWidth/1440,innerHeight/766);stage.style.transform=`scale(${s})`;stage.style.left=full?'0px':`${(innerWidth-1440*s)/2}px`;stage.style.top=full?'0px':`${(innerHeight-766*s)/2}px`;
- stage.style.setProperty('--interview-viewport-height',`${Math.min(766,innerHeight/s)}px`);
- if(full)document.body.style.setProperty('--interview-header-height',`${54*s}px`);else document.body.style.removeProperty('--interview-header-height');
+ const scale=full?innerWidth/1440:Math.min(innerWidth/1440,innerHeight/766);
+ const top=headerHeight-54*scale;
+ stage.style.transform=`scale(${scale})`;stage.style.left=full?'0px':`${(innerWidth-1440*scale)/2}px`;stage.style.top=`${top}px`;
+ const height=Math.max(54,(innerHeight-top)/scale);
+ stage.style.setProperty('--interview-viewport-height',`${height}px`);
+ stage.style.setProperty('--film-height',`${height}px`);
+ document.body.style.setProperty('--interview-header-height',`${headerHeight}px`);
 }
-function show(){const [key,filmIndex]=location.hash.slice(1).split('/');if(key==='reflection'){location.replace('#film/8');return;}for(const s of screens)s.hidden=s.id!==key;if(!screens.some(s=>s.id===key))screens[0].hidden=false;resize();
- for(const key of Object.keys(interviewPeople)){for(const link of document.querySelectorAll(`#${key} [data-name="Interview navigation — left tabs"]>a`)){if(link.getAttribute('href')===`#${key}`)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}}
- for(const button of document.querySelectorAll('#film [data-name="Interview navigation — left tabs"]>:is(button,a)')){
+function show(){const [key,filmIndex]=location.hash.slice(1).split('/');if(key==='reflection'){location.replace('#film/8');return;}for(const s of screens)s.hidden=s.id!==key;if(!screens.some(s=>s.id===key))screens[0].hidden=false;
+ for(const menu of new Set(Object.keys(interviewPeople).map(getSectionNavigation).filter(Boolean))){for(const link of menu.querySelectorAll(':scope>a')){if(link.getAttribute('href')===`#${key}`)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}}
+ for(const button of getSectionNavigation('film')?.querySelectorAll(':scope>:is(button,a)')||[]){
   const selected=filmTitles.indexOf(textOf(button))===Number(filmIndex||0);
   if(selected)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
  }
+ resize();
  if(key==='film'&&filmIndex){requestAnimationFrame(()=>{const content=document.querySelector('#film [data-name="Films — scrollable studies"]');const blocks=[...document.querySelectorAll('#film [data-name^="Question"]')];const block=blocks[Number(filmIndex)];if(block)content.scrollTop=block.offsetTop;});}}
 addEventListener('resize',resize);addEventListener('hashchange',show);resize();show();
 import {initWords} from './words.js?v=filter-close-inset-1';
 initWords().catch(error=>console.error(error));
-import {alignTopbars} from './topbar.js?v=topnav';
+import {alignTopbars,syncTopbars,getSectionNavigation} from './topbar.js?v=primary-dropdown-2';
 alignTopbars();resize();document.fonts.ready.then(resize);
-import {initPassageReader} from './passage-reader.js?v=feng-qin-humanized-1';
+import {initPassageReader} from './passage-reader.js?v=shortest-answer-1';
 initPassageReader().catch(error=>console.error(error));
+
+import {initInterviewScroll} from './interview-scroll.js?v=progress-1';
+initInterviewScroll(Object.keys(interviewPeople));

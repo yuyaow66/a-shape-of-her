@@ -29,9 +29,9 @@ export async function initPassageReader(){
  const peopleNav=document.createElement('nav');peopleNav.setAttribute('aria-label','Interviews');
  const back=button('Back','Back',()=>reader.close());back.className='passage-back';toolbar.append(peopleNav,back);
  const text=document.createElement('div');text.className='passage-text';reader.append(photo,toolbar,text);document.body.append(reader);
- let current,origin,showPov=false;
+ let current,origin,showPov=false,fitKey='',fitFrame=0;
  function openReader(entry){
-  origin=document.activeElement;current=entry;showPov=false;renderReader();reader.showModal();back.focus();
+  origin=document.activeElement;current=entry;showPov=false;renderReader();reader.showModal();fitReader();back.focus();
  }
  function renderReader(){
   const questionIndex=entries.filter(entry=>entry.key==='mom').findIndex(entry=>entry.heading===current.heading);
@@ -46,13 +46,36 @@ export async function initPassageReader(){
   }
   const povTab=button('My POV','My POV',()=>{showPov=true;renderReader();reader.scrollTop=0;});
   povTab.setAttribute('aria-pressed',String(showPov));peopleNav.append(povTab);
-  text.replaceChildren();const heading=document.createElement('h2');heading.textContent=current.heading;text.append(heading);
-  for(const passage of showPov?insight.paragraphs:current.paragraphs){
+  populateText(text,showPov?insight.paragraphs:current.paragraphs);
+  if(reader.open)fitReader();
+ }
+ function populateText(target,paragraphs){
+  target.replaceChildren();
+  const heading=document.createElement('h2');heading.textContent=current.heading;target.append(heading);
+  for(const passage of paragraphs){
    const row=document.createElement('div');row.className='passage-row';
-   const paragraph=document.createElement('p');paragraph.textContent=passage;row.append(paragraph);
-   text.append(row);
+   const paragraph=document.createElement('p');paragraph.textContent=passage;row.append(paragraph);target.append(row);
   }
  }
+ function fitReader(force=false){
+  if(!reader.open)return;
+  const width=reader.getBoundingClientRect().width;
+  const key=current.heading+'|'+width+'|'+toolbar.getBoundingClientRect().height;
+  if(!force&&key===fitKey)return;
+  const variants=entries.filter(entry=>entry.heading===current.heading&&entry.paragraphs.length).map(entry=>entry.paragraphs);
+  const index=entries.filter(entry=>entry.key==='mom').findIndex(entry=>entry.heading===current.heading);
+  if(insights[index]?.paragraphs?.length)variants.push(insights[index].paragraphs);
+  if(!variants.length)variants.push(current.paragraphs);
+  const probe=reader.cloneNode(true);probe.setAttribute('open','');probe.setAttribute('aria-hidden','true');probe.inert=true;
+  for(const [property,value]of Object.entries({'display':'block','position':'fixed','inset':'auto','left':'-10000px','top':'0','width':width+'px','max-width':'none','height':'auto','max-height':'none','min-height':'0','margin':'0','visibility':'hidden','pointer-events':'none','overflow':'hidden'}))probe.style.setProperty(property,value,'important');
+  document.body.append(probe);
+  const probeText=probe.querySelector('.passage-text');let shortest=Infinity;
+  for(const paragraphs of variants){populateText(probeText,paragraphs);shortest=Math.min(shortest,probe.getBoundingClientRect().height);}
+  probe.remove();
+  reader.style.setProperty('--passage-fit-height',Math.ceil(shortest)+'px');fitKey=key;
+ }
+ const scheduleFit=()=>{if(!fitFrame)fitFrame=requestAnimationFrame(()=>{fitFrame=0;fitReader(true);});};
+ addEventListener('resize',scheduleFit);document.fonts.ready.then(scheduleFit);
  reader.addEventListener('close',()=>origin?.focus({preventScroll:true}));
  reader.addEventListener('keydown',event=>{
   if(event.target.tagName==='BUTTON'||showPov)return;

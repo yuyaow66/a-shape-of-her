@@ -165,13 +165,55 @@ export function mountBookStudies(){
   });
   nav.append(tab);
  }
- const realityBody=reality.children[1];
- realityBody.replaceChildren();
- const intro=document.createElement('p');intro.className='film-reality-intro';intro.textContent='These films and books make me think of my own family.';realityBody.append(intro);
- for(const section of realityConnections){
-  const heading=document.createElement('p');heading.className='film-reality-heading';heading.textContent=section.title;realityBody.append(heading);
-  for(const text of section.paragraphs){const paragraph=document.createElement('p');paragraph.textContent=text;realityBody.append(paragraph);}
+ const realityHeader=document.createElement('header');realityHeader.className='reality-header';
+ const realityTitle=document.createElement('h2');realityTitle.className='reality-title';
+ const titleContext=document.createElement('span');titleContext.textContent='Connecting the films & books with ';
+ const titleReality=document.createElement('strong');titleReality.textContent='REALITY';
+ realityTitle.append(titleContext,titleReality);
+ const intro=document.createElement('p');intro.className='reality-intro';intro.textContent='These films and books make me think of my own family.';
+ realityHeader.append(realityTitle,intro);
+ const realityBody=document.createElement('div');realityBody.className='reality-reading';
+ const directory=document.createElement('nav');directory.className='reality-directory';directory.setAttribute('aria-label','Personal reflections by work');
+ const reflections=document.createElement('div');reflections.className='reality-reflections';
+ const noteHeadings=[];
+ const noteLinks=[];
+ for(const [index,section] of realityConnections.entries()){
+  const article=document.createElement('article');article.className='reality-note';
+  const heading=document.createElement('h3');heading.id=`reality-note-${index+1}`;heading.className='reality-note-title';heading.textContent=section.title;heading.tabIndex=-1;
+  article.setAttribute('aria-labelledby',heading.id);article.append(heading);noteHeadings.push(heading);
+  const link=document.createElement('a');link.href='#film/8';
+  const number=document.createElement('span');number.className='reality-note-number';number.textContent=String(index+1).padStart(2,'0');number.setAttribute('aria-hidden','true');
+  const label=document.createElement('span');label.textContent=section.title;link.append(number,label);
+  if(index===0)link.setAttribute('aria-current','location');
+  link.addEventListener('click',event=>{
+   event.preventDefault();
+   const scroller=root.querySelector('[data-name="Films — scrollable studies"]');
+   const frame=scroller.getBoundingClientRect();
+   const scale=frame.height/scroller.clientHeight;
+   const top=scroller.scrollTop+(heading.getBoundingClientRect().top-frame.top)/scale-24;
+   heading.focus({preventScroll:true});
+   scroller.scrollTo({top,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  });
+  directory.append(link);noteLinks.push(link);
+  for(const text of section.paragraphs){
+   const paragraph=document.createElement('p');paragraph.textContent=text;article.append(paragraph);
+  }
+  reflections.append(article);
  }
+ realityBody.append(directory,reflections);reality.replaceChildren(realityHeader,realityBody);
+ const realityScroller=root.querySelector('[data-name="Films — scrollable studies"]');
+ let pendingFrame=0;
+ const updateDirectory=()=>{
+  pendingFrame=0;
+  if(root.hidden)return;
+  const frame=realityScroller.getBoundingClientRect();
+  const threshold=frame.top+frame.height*.25;
+  let current=0;
+  noteHeadings.forEach((heading,index)=>{if(heading.getBoundingClientRect().top<=threshold)current=index;});
+  noteLinks.forEach((link,index)=>{if(index===current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+ };
+ realityScroller.addEventListener('scroll',()=>{if(!pendingFrame)pendingFrame=requestAnimationFrame(updateDirectory);},{passive:true});
+ addEventListener('resize',()=>{if(!pendingFrame)pendingFrame=requestAnimationFrame(updateDirectory);});
  studies.append(reality);photos.append(realityImage);nav.append(realityTab);
  for(const group of [photos,studies]){
   [...group.children].forEach((item,index)=>{

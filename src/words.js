@@ -81,15 +81,14 @@ export async function initWords(){
  panelBox?.append(stack);
  function render(){
   for(const {card,article} of entries){
-   article.hidden=!matchesWord(card,filters);
+   article.classList.toggle('is-unmatched',!matchesWord(card,filters));
    const tags=article.querySelector('.word-pressure');
    for(const label of tags.querySelectorAll('.word-theme-tag'))label.remove();
    for(const theme of card.themes){
     const label=document.createElement('span');label.className='word-pressure-tag word-theme-tag';label.textContent=theme;tags.append(label);
    }
   }
-  for(const button of buttons){const selected=filters[button.dataset.filterGroup].has(button.dataset.filterValue);button.setAttribute('aria-pressed',String(selected));button.style.background=selected?'#f3a5de':'#35253f';for(const p of button.querySelectorAll('p'))p.style.color=selected?'#35253f':'#f0dbe8';}
-  gallery.scrollTop=0;
+  for(const button of buttons){const selected=filters[button.dataset.filterGroup].has(button.dataset.filterValue);button.setAttribute('aria-pressed',String(selected));}
  }
  reset?.addEventListener('click',()=>{filters=emptyFilters();render();});render();setFiltersClosed(compact.matches,false);
 }

@@ -3,17 +3,10 @@ import {interviewPeople} from './interview-followups.js?v=feng-qin-humanized-1';
 import {mountHomeEyes,mountHomeTrail} from './home-eye.js?v=trail-resume-1';
 const home=document.querySelector('.figma-home');
 const landing=home.querySelector('[data-name="index"]');
-const narrow=matchMedia('(max-width:1100px)');
-const fineHover=matchMedia('(hover:hover) and (pointer:fine)');
 const menus=[];
 landing.classList.add('home-landing');
 landing.firstElementChild.classList.add('home-background');
 
-function resize(){
- home.style.setProperty('--home-scale',narrow.matches?1:Math.min(innerWidth/1440,innerHeight/766));
-}
-addEventListener('resize',resize);
-resize();
 document.querySelector('[data-node-id="1:411"]')?.remove();
 
 function node(id){return document.querySelector(`[data-node-id="${id}"]`);}
@@ -29,9 +22,6 @@ const routes={'1:406':'words','1:405':'mom','1:408':'film','1:409':'research'};
 const navigation=document.createElement('nav');
 navigation.className='home-navigation';
 navigation.setAttribute('aria-label','Main navigation');
-const navigationLabel=node('1:402');
-navigationLabel.classList.add('home-navigation-label');
-navigation.append(navigationLabel);
 for(const [id,key] of Object.entries(routes)){
  const element=node(id);
  let link=element;
@@ -70,7 +60,7 @@ shortAboutLabel.setAttribute('aria-hidden','true');
 trigger.append(shortAboutLabel);
 
 const smallBrand=node('1:390');
-smallBrand.classList.add('home-small-brand');
+smallBrand.classList.add('home-small-brand','site-brand');
 const smallOrnament=node('1:391');
 smallOrnament.classList.add('home-small-ornament');
 const brandmark=group('home-brandmark',[smallBrand,smallOrnament]);
@@ -83,9 +73,9 @@ const title=node('1:417');
 title.classList.add('home-title');
 title.setAttribute('role','heading');
 title.setAttribute('aria-level','1');
-title.setAttribute('aria-label','A SHAPE OF HER');
+title.setAttribute('aria-label','WHO SHAPES HER LIFE?');
 title.replaceChildren();
-for(const text of ['A SHAPE ','OF HER']){
+for(const text of ['WHO SHAPES ','HER LIFE?']){
  const line=document.createElement('span');
  line.className='home-title-line';
  line.setAttribute('aria-hidden','true');
@@ -118,9 +108,7 @@ if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
 }
 const description=node('1:422');
 description.classList.add('home-description');
-const update=node('178:77');
-update.classList.add('home-update');
-group('home-footer',[description,update]);
+group('home-footer',[description]);
 
 about.classList.add('home-about');
 aboutSheet.classList.add('home-about-sheet');
@@ -176,18 +164,19 @@ about.addEventListener('keydown',event=>{
  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
 });
 
-function toggleMenusWithClick(){return narrow.matches||!fineHover.matches;}
-function addMenu({nodeId,label,top,left,items}){
- const trigger=node(nodeId).closest('a');
+function addMenu({nodeId,label,items}){
+ const source=node(nodeId).closest('a');
+ const trigger=document.createElement('button');
+ for(const attribute of source.attributes)if(attribute.name!=='href')trigger.setAttribute(attribute.name,attribute.value);
+ trigger.type='button';
+ while(source.firstChild)trigger.append(source.firstChild);
+ source.replaceWith(trigger);
  const entry=trigger.parentElement;
  const menu=document.createElement('nav');
  menu.className='home-film-menu';
  menu.setAttribute('aria-label',label);
  menu.id='home-menu-'+nodeId.replace(':','-');
  menu.hidden=true;
- menu.style.top=top+'px';
- menu.style.setProperty('--menu-top',top+'px');
- menu.style.left=left+'px';
  for(const item of items){
   const link=document.createElement('a');
   link.textContent=item.label;
@@ -197,59 +186,36 @@ function addMenu({nodeId,label,top,left,items}){
  entry.append(menu);
  trigger.setAttribute('aria-expanded','false');
  trigger.setAttribute('aria-controls',menu.id);
- let closeTimer;
- let restoringFocus=false;
  function closeMenu(restoreFocus=false){
-  clearTimeout(closeTimer);
+  const hasFocus=menu.contains(document.activeElement);
   menu.hidden=true;
   trigger.setAttribute('aria-expanded','false');
-  if(restoreFocus){restoringFocus=true;trigger.focus();restoringFocus=false;}
+  if(restoreFocus||hasFocus)trigger.focus();
  }
  function openMenu(){
-  clearTimeout(closeTimer);
   for(const other of menus)if(other.menu!==menu)other.close();
   menu.hidden=false;
   trigger.setAttribute('aria-expanded','true');
  }
- function toggleMenu(){menu.hidden?openMenu():closeMenu();}
  menus.push({menu,trigger,entry,close:closeMenu});
- trigger.addEventListener('click',event=>{
-  if(toggleMenusWithClick()){event.preventDefault();toggleMenu();}
- });
+ trigger.addEventListener('click',()=>{menu.hidden?openMenu():closeMenu();});
  trigger.addEventListener('keydown',event=>{
-  if(toggleMenusWithClick()&&event.key===' '){event.preventDefault();toggleMenu();}
   if(event.key==='ArrowDown'){event.preventDefault();openMenu();menu.firstElementChild.focus();}
  });
- trigger.addEventListener('mouseenter',()=>{if(!toggleMenusWithClick())openMenu();});
- trigger.addEventListener('focus',()=>{if(!toggleMenusWithClick()&&!restoringFocus)openMenu();});
- trigger.addEventListener('mouseleave',()=>{if(!toggleMenusWithClick())closeTimer=setTimeout(closeMenu,180);});
- menu.addEventListener('mouseenter',()=>clearTimeout(closeTimer));
- menu.addEventListener('mouseleave',()=>{if(!toggleMenusWithClick())closeTimer=setTimeout(closeMenu,120);});
  menu.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
- entry.addEventListener('focusout',event=>{if(!entry.contains(event.relatedTarget))closeMenu();});
 }
-addMenu({nodeId:'1:408',label:'Film & Book Studies',top:264,left:340,items:[
+addMenu({nodeId:'1:408',label:'Film & Book Studies',items:[
  {label:'The Bold, the Corrupt, and the Beautiful',route:'film/0'},
  {label:'Raise the Red Lantern',route:'film/1'},
  {label:'In the Mood for Love',route:'film/2'},
  ...bookTitles.map((label,index)=>({label,route:'film/'+(index+3)})),
  {label:'Connecting to Reality',route:'film/8'}
 ]});
-addMenu({nodeId:'1:405',label:'Interviews',top:214,left:255,items:Object.entries(interviewPeople).map(([route,label])=>({label,route}))});
+addMenu({nodeId:'1:405',label:'Interviews',items:Object.entries(interviewPeople).map(([route,label])=>({label,route}))});
 
-function syncLayout(){
- resize();
- closeMenus();
- for(const {trigger} of menus){
-  if(toggleMenusWithClick())trigger.setAttribute('role','button');
-  else trigger.removeAttribute('role');
- }
-}
-narrow.addEventListener('change',syncLayout);
-fineHover.addEventListener('change',syncLayout);
-syncLayout();
+navigation.addEventListener('focusout',event=>{if(!navigation.contains(event.relatedTarget))closeMenus();});
 document.addEventListener('pointerdown',event=>{
- for(const entry of menus)if(!entry.menu.hidden&&!entry.entry.contains(event.target))entry.close();
+ if(!navigation.contains(event.target))closeMenus();
 });
 addEventListener('keydown',event=>{
  if(event.key!=='Escape')return;

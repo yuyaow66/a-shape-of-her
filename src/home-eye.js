@@ -263,6 +263,7 @@ export function mountHomeEyes(landing){
  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)wake();else{cancelAnimationFrame(frame);clearTimeout(blinkTimer);blinkTimer=0;frame=0;previousTime=0;lastPointer=null;}}).observe(field);
  reduced.addEventListener('change',()=>{fragments.clear();blinkUntil=0;wake();});
  addEventListener('resize',resize);
+ new ResizeObserver(resize).observe(field);
  resize();
 }
 export function addTrailSegment(trails,from,to,width,height){
